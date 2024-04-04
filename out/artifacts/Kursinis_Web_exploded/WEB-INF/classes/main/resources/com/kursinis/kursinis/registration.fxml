@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="333.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kursinis.kursinis.fxControllers.RegistrationCtr">
+   <children>
+      <TextField fx:id="loginField" layoutX="29.0" layoutY="24.0" prefHeight="25.0" prefWidth="149.0" promptText="Enter login" />
+      <PasswordField fx:id="passwordField" layoutX="28.0" layoutY="70.0" prefHeight="25.0" prefWidth="149.0" promptText="Enter password" />
+      <PasswordField fx:id="repeatPasswordField" layoutX="28.0" layoutY="119.0" promptText="Confirm password" />
+      <TextField fx:id="nameField" layoutX="28.0" layoutY="164.0" promptText="Enter name" />
+      <TextField fx:id="surnameField" layoutX="28.0" layoutY="212.0" promptText="Enter surname" />
+      <Button layoutX="290.0" layoutY="293.0" mnemonicParsing="false" onAction="#createUser" text="Create User" />
+      <Button layoutX="29.0" layoutY="293.0" mnemonicParsing="false" onAction="#returnToLogin" text="Return" />
+      <TextField fx:id="cardNoField" layoutX="194.0" layoutY="24.0" prefHeight="25.0" prefWidth="174.0" promptText="Enter card No:" />
+      <DatePicker fx:id="birthDateField" layoutX="194.0" layoutY="119.0" prefHeight="25.0" prefWidth="174.0" promptText="Enter birth date" />
+      <Label fx:id="usernameExistsLabel" layoutX="28.0" layoutY="49.0" textFill="RED" />
+      <Label fx:id="passwordNoMatch" layoutX="28.0" layoutY="144.0" />
+      <Label fx:id="enterNameLabel" layoutX="29.0" layoutY="189.0" textFill="RED" />
+      <Label fx:id="enterSurnameLabel" layoutX="29.0" layoutY="237.0" textFill="RED" />
+      <Label fx:id="enterAddressLabel" layoutX="194.0" layoutY="49.0" textFill="RED" />
+      <Label fx:id="enterCardLabel" layoutX="194.0" layoutY="95.0" textFill="RED" />
+      <Label fx:id="enterDateLabel" layoutX="194.0" layoutY="144.0" textFill="RED" />
+      <Label fx:id="enterPasswordLabel" layoutX="29.0" layoutY="95.0" textFill="RED" />
+      <TextField fx:id="addressField" layoutX="194.0" layoutY="70.0" prefHeight="25.0" prefWidth="174.0" promptText="Home address" />
+   </children>
+</AnchorPane>

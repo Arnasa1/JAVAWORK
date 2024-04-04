@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="741.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kursinis.kursinis.fxControllers.EmployeeCtr">
+   <children>
+      <TabPane layoutY="-8.0" prefHeight="747.0" prefWidth="778.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="productsTab" onSelectionChanged="#loadAllProductsTab" text="Products">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="710.0" prefWidth="862.0">
+                     <children>
+                        <TextField fx:id="productTitle" layoutX="440.0" layoutY="315.0" promptText="Title" />
+                         <TextField fx:id="productManufacturer" layoutX="440.0" layoutY="355.0" promptText="Manufacturer" />
+                         <TextField fx:id="description" layoutX="440.0" layoutY="474.0" prefHeight="41.0" prefWidth="148.0" promptText="Description" />
+                        <Button fx:id="addProduct" layoutX="603.0" layoutY="315.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="25.0" prefWidth="51.0" text="Add" />
+                        <TextField fx:id="productPrice" layoutX="440.0" layoutY="433.0" prefHeight="25.0" prefWidth="148.0" promptText="Price" />
+                        <Button fx:id="deleteProduct" layoutX="486.0" layoutY="526.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="25.0" prefWidth="103.0" text="Delete" />
+                        <Button fx:id="updateProduct" layoutX="606.0" layoutY="355.0" mnemonicParsing="false" onAction="#updateProduct" prefHeight="25.0" prefWidth="46.0" text="Save" />
+                        <TableView fx:id="productTable" layoutX="13.0" layoutY="42.0" onMouseClicked="#selectProduct" prefHeight="207.0" prefWidth="645.0" AnchorPane.bottomAnchor="469.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="42.0">
+                            <columns>
+                                <TableColumn fx:id="idColumn" prefWidth="70.0" text="Product ID">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="id" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="nameColumn" prefWidth="95.0" text="Product Name">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="title" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="descriptionColumn" prefWidth="215.0" text="Description">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="description" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="typeColumn" prefWidth="90.0" text="Type">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="type" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="manufacturerColumn" prefWidth="105.0" text="Manufacturer">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="price" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="priceColumn" prefWidth="66.0" text="Price">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="price" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                        <TextField fx:id="commentTitleField" layoutX="15.0" layoutY="526.0" prefHeight="25.0" prefWidth="152.0" promptText="Title" />
+                        <TextField fx:id="commentBodyField" layoutX="15.0" layoutY="562.0" prefHeight="131.0" prefWidth="357.0" promptText="Body" />
+                        <Button fx:id="addComment" layoutX="384.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#commentAdd" text="Add " />
+                        <Button fx:id="editComment" layoutX="384.0" layoutY="563.0" mnemonicParsing="false" onMouseClicked="#commentEdit" text="Edit" />
+                        <Button fx:id="deleteComment" layoutX="448.0" layoutY="661.0" mnemonicParsing="false" onMouseClicked="#commentDelete" text="Delete " />
+                        <TextField fx:id="selectType" layoutX="440.0" layoutY="390.0" promptText="Type" />
+                        <TreeView fx:id="commentTreeView" layoutX="14.0" layoutY="315.0" onMouseClicked="#selectComment" prefHeight="200.0" prefWidth="358.0" />
+                        <Label layoutX="13.0" layoutY="249.0" text="Comments">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="15.0" layoutY="3.0" text="Products">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="submitButton" layoutX="382.0" layoutY="602.0" mnemonicParsing="false" onMouseClicked="#submitComment" text="Save" />
+
+                         
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="cartTab" onSelectionChanged="#OrderLoadTab" text="Orders">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="468.0" prefWidth="867.0">
+                     <children>
+                        <ListView fx:id="ordersList" layoutX="20.0" layoutY="44.0" onMouseClicked="#selectCart" prefHeight="249.0" prefWidth="353.0" />
+                        <Button layoutX="20.0" layoutY="308.0" mnemonicParsing="false" onMouseClicked="#cancelOrder" text="Cancel" />
+                        <Button layoutX="175.0" layoutY="308.0" mnemonicParsing="false" onMouseClicked="#confirmOrder" text="Confirm" />
+                        <Button fx:id="orderFulfill" layoutX="83.0" layoutY="308.0" mnemonicParsing="false" onMouseClicked="#fulfillOrder" prefHeight="25.0" prefWidth="82.0" text="Finish" />
+                        <ListView fx:id="urgentOrdersList" layoutX="378.0" layoutY="44.0" prefHeight="250.0" prefWidth="379.0" />
+                        <Label layoutX="20.0" layoutY="12.0" text="Orders list:">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="378.0" layoutY="13.0" text="Priority:">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="userIDSort" layoutX="123.0" layoutY="394.0" prefHeight="25.0" prefWidth="74.0" promptText="Order Id" />
+                        <TextField fx:id="orderStatusSort" layoutX="218.0" layoutY="394.0" prefHeight="25.0" prefWidth="74.0" promptText="Status" />
+                        <Label fx:id="orderSelectedLabel" layoutX="470.0" layoutY="11.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="359.0" prefHeight="17.0" prefWidth="155.0" text="Sort orders by:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="dateFromSort" layoutX="20.0" layoutY="394.0" prefHeight="25.0" prefWidth="76.0" promptText="Date" />
+                        <Button layoutX="310.0" layoutY="394.0" mnemonicParsing="false" onMouseClicked="#sortOrders" text="Sort" />
+                        <Button layoutX="20.0" layoutY="435.0" mnemonicParsing="false" onMouseClicked="#clearSortFields" text="Clear" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="infoTab" onSelectionChanged="#UserManagementLoadTab" text="User Management">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="loginField" layoutX="13.0" layoutY="355.0" prefHeight="25.0" prefWidth="136.0" promptText="login" />
+                        <TextField fx:id="passwordField" layoutX="14.0" layoutY="385.0" prefHeight="25.0" prefWidth="134.0" promptText="pass" />
+                        <TextField fx:id="nameField" layoutX="206.0" layoutY="355.0" prefHeight="25.0" prefWidth="127.0" promptText="First name" />
+                        <TextField fx:id="surnameField" layoutX="206.0" layoutY="385.0" prefHeight="25.0" prefWidth="128.0" promptText="Last name" />
+                        <TextField fx:id="addressField" layoutX="206.0" layoutY="496.0" promptText="Home address" />
+                        <TextField fx:id="cardNo" layoutX="206.0" layoutY="454.0" promptText="Card number" />
+                        <DatePicker fx:id="bDateField" layoutX="206.0" layoutY="417.0" prefHeight="25.0" prefWidth="127.0" promptText="Birth date" />
+                        <Button fx:id="updateInfo" layoutX="38.0" layoutY="545.0" mnemonicParsing="false" onMouseClicked="#updateYourInfo" text="Save changes" />
+                        <TableView fx:id="userManagTableView" layoutX="29.0" layoutY="22.0" onMouseClicked="#selectUser" prefHeight="200.0" prefWidth="547.0">
+                          <columns>
+                            <TableColumn fx:id="userIDColumn" prefWidth="64.0" text="User ID" />
+                            <TableColumn fx:id="loginColumn" prefWidth="86.0" text="Login" />
+                              <TableColumn fx:id="unameColumn" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="surnameColumn" prefWidth="75.0" text="Surname" />
+                              <TableColumn fx:id="birthDateColumn" prefWidth="85.0" text="Birth Date" />
+                              <TableColumn fx:id="cardNumberColumn" minWidth="0.0" prefWidth="0.0" text="Card number" />
+                              <TableColumn fx:id="addressColumn" prefWidth="161.0" text="Address" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="588.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#openChart" text="All orders" />
+                        <Label layoutX="15.0" layoutY="319.0" text="login details:" />
+                        <Label layoutX="206.0" layoutY="319.0" text="Personal info:" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
